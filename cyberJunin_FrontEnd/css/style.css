@@ -1,0 +1,74 @@
+
+body{
+    background-color: #D4D8E2;
+    
+}
+
+nav{
+    background-color: #243663;
+    border-bottom: 1px solid black;
+    color:white;
+}
+
+nav .titulo{
+    padding-left: 2em;
+}
+
+.logo{
+    width:8%;
+    border-radius: 50%;
+}
+
+.conteudo{
+    background-color: #243663;
+    border-radius: 1em;
+    padding-top:1em;
+    color:#D4D8E2;
+    margin-bottom: 2em;
+}
+
+
+.banner{
+    background-image: url(../imagens/banner_sec.jpg);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    color:#D4D8E2;
+    padding:7em;
+    
+}
+
+.secgif{
+    width:5%;
+}
+
+.texto-inicial{
+    width:40%;
+}
+
+.bloco{
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    padding: 2em;
+}
+
+.bloco img{
+    width: 20%;
+}
+
+.linha{
+    width:80%;
+    margin-left: 10%;
+    border-bottom: 1px solid #D4D8E2;
+}
+
+footer{
+    background-color: black;
+    color:white;
+    padding:2em;
+    text-align: center;
+}
+  
