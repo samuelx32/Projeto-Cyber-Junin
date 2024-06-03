@@ -21,25 +21,30 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 opcoes">
             <li class="nav-item">
-              <a class="nav-link active op" aria-current="page" href="imagens/index.html">Tela Inicial</a>
+              <a class="nav-link active op" aria-current="page" href="index.html">Tela Inicial</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="imagens/news.html">Notícias</a>
+              <a class="nav-link" href="news.html">Notícias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-disabled="true">Estudos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-disabled="true">Ferramentas</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
+                Administrador
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Crud Usuário</a></li>
+                <li><a class="dropdown-item" href="#">Crud Notícia</a></li>
+                <li><a class="dropdown-item" href="#">Crud Estudo</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Adicionar Estudo</a></li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
+            
           </ul>
           <form class="d-flex" role="search">
             <button class="btn btn-secondary" type="submit">LOGIN</button>
@@ -48,25 +53,50 @@
       </div>
     </nav>
 
+    <div class="banner">
+      <h1 class="container mb-5">MANTENHA-SE SEGURO <img src="imagens/secgif.gif" class="secgif"></h1>
+      <div class="texto-inicial">
+        <p class="container">Com o nosso sistema você vai aprender sobre cyber securança, estará sempre atualizado e ainda terá tecnologias a disposição para tornar sua navegação na web mais segura.</p>
+      </div>
+    </div>
 
-    <div class="container pt-3">
+    <div class="container bloco">
+            
+      <div class="card" style="width: 18rem; height: 25em;">
+        <img src="imagens/bitcoin.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Bitcoin New</h5>
+          <p class="card-text">Fluxos de investimento em Bitcoin atingem US$ 1 bilhão, à medida detentores de longo prazo acumulam</p>
+          <a href="#" class="btn btn-primary">Ler Notícia</a>
+        </div>
+      </div>
+
+        <div class="card" style="width: 18rem; height: 25em;">
+          <img src="imagens/openai.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">OpenAI cria conselho de supervisão</h5>
+            <p class="card-text">OpenAI cria conselho de supervisão após dissolução da equipe de segurança</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem; height: 25em;">
+          <img src="imagens/programacao.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Mercado de TI</h5>
+            <p class="card-text">Procura por carreira de programador cresce 30% no Brasil e Phyton é a linguagem mais buscada</p>
+            <a href="#" class="btn btn-primary">Ler Notícia</a>
+          </div>
+        </div>
+      
+      
+    </div>
+
+    <div class="pt-3">
       <div class="conteudo">
-          <div class="banner">
-            <h1 class="mb-5">MANTENHA-SE SEGURO <img src="imagens/secgif.gif" class="secgif"></h1>
-            <div class="texto-inicial">
-              <p>Com o nosso sistema você vai aprender sobre cyber securança, estará sempre atualizado e ainda terá tecnologias a disposição para tornar sua navegação na web mais segura.</p>
-            </div>
-          </div>
+          
 
-          <div class="bloco">
-            <img src="imagens/noticias.png">
-            <div>
-              <h3>Noticias</h3>
-              <p>Fique por dentro das últimas notícias do mundo da tecnologia.</p>
-            </div>
-          </div>
-
-          <div class="linha"></div>
+          
 
           <div class="bloco">
             <div>
@@ -74,13 +104,13 @@
               <p>Fique por dentro das últimas notícias do mundo da tecnologia.</p>
             </div>
 
-            <img src="imagens/estudos.png">
+            <img src="imagens/estudos.png" class="imagem">
           </div>
 
           <div class="linha"></div>
 
           <div class="bloco">
-            <img src="imagens/tecnologias.png">
+            <img src="imagens/tecnologias.png" class="imagem">
             <div>
               <h3>Tecnologias</h3>
               <p>Fique por dentro das últimas notícias do mundo da tecnologia.</p>

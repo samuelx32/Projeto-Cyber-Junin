@@ -21,10 +21,9 @@ nav .titulo{
 
 .conteudo{
     background-color: #243663;
-    border-radius: 1em;
     padding-top:1em;
     color:#D4D8E2;
-    margin-bottom: 2em;
+    
 }
 
 
@@ -43,10 +42,12 @@ nav .titulo{
 }
 
 .texto-inicial{
-    width:40%;
+    width:30%;
+    margin-left: 11em;
 }
 
 .bloco{
+    width:100%;
     margin-top: 1em;
     display: flex;
     flex-direction: row;
@@ -55,7 +56,15 @@ nav .titulo{
     padding: 2em;
 }
 
-.bloco img{
+.bloco-esquerdo{
+    width:30%;
+}
+
+.bloco-direito{
+    width:50%;
+}
+
+.bloco .imagem{
     width: 20%;
 }
 
