@@ -43,7 +43,7 @@ nav .titulo{
 
 .texto-inicial{
     width:30%;
-    margin-left: 11em;
+    margin-left: 0%;
 }
 
 .bloco{
@@ -98,3 +98,34 @@ footer{
     text-align: center;
 }
   
+
+@media only screen and (max-width: 940px) {
+    .bloco {
+        width:90%;
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+        padding: 2em;
+        margin-left: 5%;
+    }
+    .card{
+        margin-bottom: 1em;
+    }
+
+    .banner{
+        width:100%;
+    }
+    .secgif{
+        width:30%;
+    }
+    .texto-inicial{
+        width:100%;
+        margin-left: 0;
+        text-align: center;
+    }
+    .texto-estudo{
+        width:100%;
+    }
+  }
