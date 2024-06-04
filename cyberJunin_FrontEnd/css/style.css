@@ -47,13 +47,14 @@ nav .titulo{
 }
 
 .bloco{
-    width:100%;
+    width:90%;
     margin-top: 1em;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content:space-around;
     padding: 2em;
+    margin-left: 5%;
 }
 
 .bloco-esquerdo{
@@ -67,6 +68,22 @@ nav .titulo{
 .bloco .imagem{
     width: 20%;
 }
+
+.texto-estudo{
+    width: 40%;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+.texto-estudo h3{
+    padding-bottom: 1em;
+}
+
+.texto-estudo p{
+    padding-bottom: 1em;
+}
+
+
 
 .linha{
     width:80%;
