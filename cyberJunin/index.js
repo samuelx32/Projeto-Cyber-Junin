@@ -32,6 +32,10 @@ app.get('/login',function(req,res){
     res.render('login.html')
 })
 
+app.get('/ferramentas',function(req,res){
+    res.render('ferramentas.html')
+})
+
 
 app.get('/noticias',function(req,res){
     res.render('noticias.html')

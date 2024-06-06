@@ -53,72 +53,46 @@
       </div>
     </nav>
 
-    <div class="banner">
-      <div class="container">
-      <h1 class="mb-5">MANTENHA-SE SEGURO <img src="static/imagens/secgif.gif" class="secgif"></h1>
-      <div class="texto-inicial">
-        <p>Com o nosso sistema você vai aprender sobre cyber securança, estará sempre atualizado e ainda terá tecnologias a disposição para tornar sua navegação na web mais segura.</p>
-      </div>
-      </div>
-    </div>
+    
 
     <div class="container bloco">
-            
-      <div class="card" style="width: 18rem; height: 25em;">
-        <img src="static/imagens/bitcoin.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Bitcoin New</h5>
-          <p class="card-text">Fluxos de investimento em Bitcoin atingem US$ 1 bilhão, à medida detentores de longo prazo acumulam</p>
-          <a href="tela_noticia.html" class="btn btn-primary">Ler Notícia</a>
-        </div>
-      </div>
-
-        <div class="card" style="width: 18rem; height: 25em;">
-          <img src="static/imagens/openai.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">OpenAI cria conselho de supervisão</h5>
-            <p class="card-text">OpenAI cria conselho de supervisão após dissolução da equipe de segurança</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem; height: 25em;">
-          <img src="static/imagens/programacao.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Mercado de TI</h5>
-            <p class="card-text">Procura por carreira de programador cresce 30% no Brasil e Phyton é a linguagem mais buscada</p>
-            <a href="#" class="btn btn-primary">Ler Notícia</a>
-          </div>
-        </div>
-      
+      <img src="static/imagens/tecnologias.png" class="imagem">
+      <h1>Verificação de URL</h1>
+      <form id="urlForm">
+          <label for="url">Insira a URL:</label>
+          <input type="text" id="url" name="url" required>
+          <button type="submit">Verificar</button>
+      </form>
+      <div id="result"></div>
       
     </div>
-
-    <div class="pt-3">
-      <div class="conteudo">
-          <div class="bloco">
-            <div class="texto-estudo">
-              <h3>O que é um Firewall?</h3>
-              <p>Um firewall é um sistema de segurança de rede que monitora e controla o tráfego de rede com base em regras de segurança predeterminadas. Ele pode ser um dispositivo de hardware, um software ou uma combinação dos dois, projetado para proteger redes e computadores de acessos não autorizados, ataques e outras ameaças.</p>
-              <a href="#" class="btn btn-primary">Obter mais conhecimento</a>
-            </div>
-
-            <img src="static/imagens/estudos.png" class="imagem">
-          </div>
-
-
-          
-      </div>
-    </div>
-
-    
 
     
     <footer> <p>@cyberjunin</p></footer>
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
+    <script>
+      document.getElementById('urlForm').addEventListener('submit', async function(event) {
+          event.preventDefault();
+          const url = document.getElementById('url').value;
+          const response = await fetch('/api/virustotal/scan', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ url: url })
+          });
+          const result = await response.json();
+
+          
+          
+          
+          document.getElementById('result').innerText = JSON.stringify(result, null, 2);
+          
+            
+      });
+  </script>
   
   </body>
 </html>
