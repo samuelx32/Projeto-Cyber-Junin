@@ -21,10 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 opcoes">
             <li class="nav-item">
-              <a class="nav-link active op" aria-current="page" href="index.html">Tela Inicial</a>
+              <a class="nav-link active op" aria-current="page" href="/">Tela Inicial</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="news.html">Notícias</a>
+              <a class="nav-link" href="/noticias">Notícias</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-disabled="true">Estudos</a>
@@ -46,7 +46,7 @@
             </li>
             
           </ul>
-          <form class="d-flex" role="search">
+          <form class="d-flex" role="search" action="/login">
             <button class="btn btn-secondary" type="submit">LOGIN</button>
           </form>
         </div>
@@ -140,8 +140,13 @@
               body: JSON.stringify({ url: url })
           });
           const result = await response.json();
+
           
-          document.getElementById('result').innerText = JSON.stringify(result["data"]["attributes"]["results"], null, 2);
+          
+          
+          document.getElementById('result').innerText = JSON.stringify(result, null, 2);
+          
+            
       });
   </script>
   

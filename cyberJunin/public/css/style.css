@@ -69,6 +69,14 @@ nav .titulo{
     width: 20%;
 }
 
+.bloco-login{
+    width:70%;
+    margin-left: 15%;
+    border:1px solid black;
+    padding:2em;
+    margin:2em;
+}
+
 .texto-estudo{
     width: 40%;
     padding-top: 4em;
@@ -96,6 +104,11 @@ footer{
     color:white;
     padding:2em;
     text-align: center;
+}
+
+#result{
+    background-color: black;
+    color:white;
 }
   
 
