@@ -4,29 +4,39 @@ const dotenv = require('dotenv')
 const virusTotalRoutes = require('./src/routes/virusTotalRoutes')
 const app = express()
 const PORT = 8080;
+
 dotenv.config()
+
+app.use('/static', express.static(__dirname + '/public'));
+app.use(express.json())
 app.use(express.urlencoded({
     extended: true
 }))
+app.use('/api/virustotal', virusTotalRoutes)
+
+app.engine ('html',mustacheExpress())
+app.set('view engine','html')
+app.set('views',__dirname + '/src/views')
 
 
 app.listen(PORT, function(){
     console.log("app rodando na porta" + PORT)
 })
 
-app.use('/static', express.static(__dirname + '/public'));
-app.use(express.json())
-
-app.engine ('html',mustacheExpress())
-app.set('view engine','html')
-app.set('views',__dirname + '/views')
 
 app.get('/',function(req,res){
     res.render('index.html')
 })
 
-app.use('/api/virustotal', virusTotalRoutes)
+app.get('/login',function(req,res){
+    res.render('login.html')
+})
 
-app.get('/contato',function(req,res){
-    res.render('contato.html')
+app.get('/ferramentas',function(req,res){
+    res.render('ferramentas.html')
+})
+
+
+app.get('/noticias',function(req,res){
+    res.render('noticias.html')
 })
