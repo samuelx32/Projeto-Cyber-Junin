@@ -1,144 +1,170 @@
-
-body{
+body {
     background-color: #D4D8E2;
-    
 }
 
-nav{
+nav {
     background-color: #243663;
     border-bottom: 1px solid black;
-    color:white;
+    color: white;
 }
 
-nav .titulo{
+nav .titulo {
     padding-left: 2em;
 }
 
-.logo{
-    width:8%;
+.logo {
+    width: 8%;
     border-radius: 50%;
 }
 
-.conteudo{
+.conteudo {
     background-color: #243663;
-    padding-top:1em;
-    color:#D4D8E2;
-    
+    padding-top: 1em;
+    color: #D4D8E2;
 }
 
-
-.banner{
+.banner {
     background-image: url(../imagens/banner_sec.jpg);
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
-    color:#D4D8E2;
-    padding:7em;
-    
+    color: #D4D8E2;
+    padding: 7em;
 }
 
-.secgif{
-    width:5%;
+.secgif {
+    width: 5%;
 }
 
-.texto-inicial{
-    width:30%;
+.texto-inicial {
+    width: 30%;
     margin-left: 0%;
 }
 
-.bloco{
-    width:90%;
+.bloco {
+    width: 90%;
     margin-top: 1em;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     padding: 2em;
     margin-left: 5%;
 }
 
-.bloco-esquerdo{
-    width:30%;
+.bloco-esquerdo {
+    width: 30%;
 }
 
-.bloco-direito{
-    width:50%;
+.bloco-direito {
+    width: 50%;
 }
 
-.bloco .imagem{
+.bloco .imagem {
     width: 20%;
+    max-width: 100px; /* Adicionado para limitar o tamanho da imagem */
+    margin-right: 5%;
 }
 
-.bloco-login{
-    width:70%;
+.bloco-login {
+    width: 70%;
     margin-left: 15%;
-    border:1px solid black;
-    padding:2em;
-    margin:2em;
+    border: 1px solid black;
+    padding: 2em;
+    margin: 2em;
 }
 
-.texto-estudo{
+.texto-estudo {
     width: 40%;
     padding-top: 4em;
     padding-bottom: 4em;
 }
 
-.texto-estudo h3{
+.texto-estudo h3 {
     padding-bottom: 1em;
 }
 
-.texto-estudo p{
+.texto-estudo p {
     padding-bottom: 1em;
 }
 
-
-
-.linha{
-    width:80%;
+.linha {
+    width: 80%;
     margin-left: 10%;
     border-bottom: 1px solid #D4D8E2;
 }
 
-footer{
+footer {
     background-color: black;
-    color:white;
-    padding:2em;
+    color: white;
+    padding: 2em;
     text-align: center;
 }
 
-#result{
-    background-color: black;
-    color:white;
+.result-container {
+    display: flex;
+    flex-direction: column; /* Altera a direção do flex somente para os resultados */
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    text-align: left; /* Alinha o texto à esquerda */
 }
-  
+
+.result-item {
+    width: 80%; /* Define uma largura fixa para os itens */
+    max-width: 500px; /* Define uma largura máxima para os itens */
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    text-align: center; /* Centraliza o texto dentro do item */
+}
 
 @media only screen and (max-width: 940px) {
     .bloco {
-        width:90%;
+        width: 90%;
         margin-top: 1em;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content:center;
+        justify-content: center;
         padding: 2em;
         margin-left: 5%;
     }
-    .card{
+    .card {
         margin-bottom: 1em;
     }
 
-    .banner{
-        width:100%;
+    .banner {
+        width: 100%;
     }
-    .secgif{
-        width:30%;
+    .secgif {
+        width: 30%;
     }
-    .texto-inicial{
-        width:100%;
+    .texto-inicial {
+        width: 100%;
         margin-left: 0;
         text-align: center;
     }
-    .texto-estudo{
-        width:100%;
+    .texto-estudo {
+        width: 100%;
     }
-  }
+}
+
+.form-url {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adiciona um espaçamento entre os elementos */
+}
+
+.form-url input {
+    flex: 1; /* Faz com que o input ocupe o espaço disponível */
+}
+
+.form-bttn {
+    margin-left: 10px; /* Espaçamento entre o input e o botão */
+    flex-shrink: 0; /* Impede que o botão diminua de tamanho */
+}
