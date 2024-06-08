@@ -13,9 +13,12 @@ nav .titulo {
 }
 
 .logo {
-    width: 8%;
+    width: 7%;
     border-radius: 50%;
+    background-color: #D4D8E2;
 }
+
+
 
 .conteudo {
     background-color: #243663;
@@ -73,6 +76,21 @@ nav .titulo {
     padding: 2em;
     margin: 2em;
 }
+
+.bloco-ferramenta{
+    background-color: #F2F2F2;
+    margin-top:3em;
+    margin-bottom: 7em;
+    padding:2em 4em;
+    box-shadow: 3px 3px 3px black;
+}
+
+.bloco-ferramenta img{
+    width:10%;
+}
+
+
+
 
 .texto-estudo {
     width: 40%;

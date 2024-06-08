@@ -51,9 +51,14 @@
 
     <div class="container bloco-ferramenta">
       <div class="titulo-ferramenta">  
-        <a href="/verificacaourl">Verificação de URL</a>
+        <h1>Verificação de URL</h1>
       </div>
+      <form id="urlForm" class="form-url">
+          <input type="text" id="url" name="url" placeholder="Insira a URL aqui..." required>
+          <button type="submit" class="form-bttn">Verificar</button>
+      </form>
     </div>
+    <div id="result" class="mt-3 result-container"></div>
 
     <footer><p>@cyberjunin</p></footer>
 
@@ -81,6 +86,9 @@
                     resultElement.classList.add('result-item');
                     resultElement.innerHTML = `<strong>${engine}:</strong> ${data.result}`;
                     resultsDiv.appendChild(resultElement);
+                }
+                if (result.data.attributes == '' || result.data.attributes == ' ' || result.data.attributes == null){
+                    resultsDiv.innerHTML = '<p>Nenhum resultado encontrado.</p>';
                 }
             } else {
                 resultsDiv.innerHTML = '<p>Nenhum resultado encontrado.</p>';
