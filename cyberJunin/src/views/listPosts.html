@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Listar Posts</title>
+</head>
+<body>
+  <h1>Listar Posts</h1>
+  <ul id="postsList"></ul>
+
+  <script>
+    async function fetchPosts() {
+      try {
+        const response = await fetch('/api/posts');
+        const posts = await response.json();
+        const postsList = document.getElementById('postsList');
+        postsList.innerHTML = '';
+        posts.forEach(post => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${post.title}</strong> - ${post.author}
+                          <button onclick="deletePost(${post.id})">Deletar</button>`; // Exemplo de botão de deleção
+          postsList.appendChild(li);
+        });
+      } catch (error) {
+        alert('Erro ao buscar posts: ' + error.message);
+      }
+    }
+  
+    async function deletePost(id) {
+      try {
+        const response = await fetch('/api/posts/' + id, { method: 'DELETE' });
+        if (response.ok) {
+          alert('Post deletado com sucesso!');
+          fetchPosts(); // Recarregar a lista após deleção
+        } else {
+          throw new Error('Falha ao deletar post');
+        }
+      } catch (error) {
+        alert('Erro ao deletar post: ' + error.message);
+      }
+    }
+  
+    fetchPosts();
+  </script>
+  
+</body>
+</html>
