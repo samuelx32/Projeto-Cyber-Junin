@@ -19,41 +19,41 @@ app.use(express.urlencoded({
     extended: true
 }))
 app.use('/api/virustotal', virusTotalRoutes)
-app.use('/api', postRoutes)
+app.use('/api/posts', postRoutes)
 
-app.engine ('html',mustacheExpress())
-app.set('view engine','html')
-app.set('views',__dirname + '/src/views')
+app.engine('html', mustacheExpress())
+app.set('view engine', 'html')
+app.set('views', __dirname + '/src/views')
 
 
-app.listen(PORT, function(){
+app.listen(PORT, function () {
     console.log("app rodando na porta" + PORT)
 })
 
-app.get('/',function(req,res){
+app.get('/', function (req, res) {
     res.render('index.html')
 })
 
-app.get('/login',function(req,res){
+app.get('/login', function (req, res) {
     res.render('login.html')
 })
 
-app.get('/ferramentas',function(req,res){
+app.get('/ferramentas', function (req, res) {
     res.render('ferramentas.html')
 })
 
-app.get('/verificacaourl',function(req,res){
+app.get('/verificacaourl', function (req, res) {
     res.render('verificacao-url.html')
 })
 
-app.get('/noticias',function(req,res){
+app.get('/noticias', function (req, res) {
     res.render('noticias.html')
 })
 
-app.get('/createpost',function(req,res){
+app.get('/createpost', function (req, res) {
     res.render('createPost.html')
 })
 
-app.get('/listposts',function(req,res){
+app.get('/listposts', function (req, res) {
     res.render('listPosts.html')
 })

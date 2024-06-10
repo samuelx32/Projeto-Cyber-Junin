@@ -3,18 +3,18 @@ const router = express.Router();
 const postController = require('../controllers/postContentController');
 
 // Rota para buscar todos os posts
-router.get('/posts', postController.getAllPosts);
+router.get('/', postController.getAllPosts);
 
 // Rota para buscar um post por ID
-router.get('/posts/:id', postController.getPostById);
+router.get('/:id', postController.getPostById);
 
 // Rota para criar um novo post
-router.post('/posts', postController.createPost);
+router.post('/', postController.createPost);
 
 // Rota para atualizar um post
-router.put('/posts/:id', postController.updatePost);
+router.put('/:id', postController.updatePost);
 
 // Rota para deletar um post
-router.delete('/posts/:id', postController.deletePost);
+router.delete('/:id', postController.deletePost);
 
 module.exports = router;

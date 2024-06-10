@@ -1,8 +1,5 @@
-// Modelo a ser utilizado para as publicações
-
-const { DataTypes } = require('sequelize')
-const { sequelize } = require('../config/db')
-
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/db');
 
 const Post = sequelize.define('Post', {
     title: {
@@ -17,12 +14,9 @@ const Post = sequelize.define('Post', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    date: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
-    },
-})
+}, {
+    tableName: 'posts',
+    timestamps: true,
+});
 
-module.exports = {
-    Post
-}
+module.exports = Post;

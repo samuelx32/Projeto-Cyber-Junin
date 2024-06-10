@@ -14,12 +14,12 @@ const getPostById = async (id) => {
 }
 
 const updatePost = async (id, data) => {
-    await Post.uptade(data, {where: {id}})
+    await Post.updatePost(data, { where: { id } })
     return await Post.findByPk(id)
 }
 
 const deletePost = async (id) => {
-    return await Post.destroy({where: {id}})
+    return await Post.destroy({ where: { id } })
 }
 
 module.exports = {

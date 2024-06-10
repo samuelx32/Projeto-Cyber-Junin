@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Criar Post</title>
 </head>
+
 <body>
   <h1>Criar Post</h1>
   <form id="createPostForm">
@@ -16,7 +18,7 @@
   </form>
 
   <script>
-    document.getElementById('createPostForm').addEventListener('submit', async function(event) {
+    document.getElementById('createPostForm').addEventListener('submit', async function (event) {
       event.preventDefault();
       const formData = {
         title: document.getElementById('title').value,
@@ -43,6 +45,7 @@
       }
     });
   </script>
-  
+
 </body>
+
 </html>
