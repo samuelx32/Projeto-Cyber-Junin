@@ -1,25 +1,28 @@
 const express = require('express')
 const mustacheExpress = require('mustache-express')
 const dotenv = require('dotenv')
+const { connectDB, sequelize } = require('./src/config/db')
+
+
 const virusTotalRoutes = require('./src/routes/virusTotalRoutes')
 const postRoutes = require('./src/routes/postContentRoutes')
-const { connectDB, sequelize } = require('./src/config/db')
+const cyberAttackRoutes = require('./src/routes/CyberAttackRoutes')
+
 
 const app = express()
 const PORT = 8080;
-
 connectDB()
 sequelize.sync()
-
 dotenv.config()
-
 app.use('/static', express.static(__dirname + '/public'));
 app.use(express.json())
 app.use(express.urlencoded({
     extended: true
 }))
+
 app.use('/api/virustotal', virusTotalRoutes)
 app.use('/api/posts', postRoutes)
+app.use('/api/cyberattacks', cyberAttackRoutes)
 
 app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
@@ -56,4 +59,12 @@ app.get('/createpost', function (req, res) {
 
 app.get('/listposts', function (req, res) {
     res.render('listPosts.html')
+})
+
+app.get('/createcyberattack', function (req, res) {
+    res.render('createCyberAttack.html')
+})
+
+app.get('/listcyberattacks', function (req, res) {
+    res.render('listCyberAttacks.html')
 })
