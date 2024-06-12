@@ -40,50 +40,45 @@
 
     <div class="container bloco-ferramenta">
       <div class="titulo-ferramenta">  
-        <ul id="postsList"></ul>
+        <a href="/verificacaourl">Verificação de URL</a>
       </div>
     </div>
-    
 
     <footer><p>@cyberjunin</p></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
-
     <script>
-      async function fetchPosts() {
+      document.getElementById('urlForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const url = document.getElementById('url').value;
+        const response = await fetch('/api/virustotal/scan', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: url })
+        });
+
         try {
-          const response = await fetch('/api/posts');
-          const posts = await response.json();
-          const postsList = document.getElementById('postsList');
-          postsList.innerHTML = '';
-          posts.forEach(post => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${post.title}</strong> - ${post.author}
-                            <button onclick="deletePost(${post.id})">Deletar</button>`; // Exemplo de botão de deleção
-            postsList.appendChild(li);
-          });
+            const result = await response.json();
+            const resultsDiv = document.getElementById('result');
+            resultsDiv.innerHTML = '';
+
+            if (result && result.data && result.data.attributes && result.data.attributes.results) {
+                for (const [engine, data] of Object.entries(result.data.attributes.results)) {
+                    const resultElement = document.createElement('div');
+                    resultElement.classList.add('result-item');
+                    resultElement.innerHTML = `<strong>${engine}:</strong> ${data.result}`;
+                    resultsDiv.appendChild(resultElement);
+                }
+            } else {
+                resultsDiv.innerHTML = '<p>Nenhum resultado encontrado.</p>';
+            }
         } catch (error) {
-          alert('Erro ao buscar posts: ' + error.message);
+            console.error('Erro ao processar a resposta da API:', error);
+            document.getElementById('result').innerHTML = '<p>Erro ao processar a resposta da API. Por favor, tente novamente.</p>';
         }
-      }
-    
-      async function deletePost(id) {
-        try {
-          const response = await fetch('/api/posts/' + id, { method: 'DELETE' });
-          if (response.ok) {
-            alert('Post deletado com sucesso!');
-            fetchPosts(); // Recarregar a lista após deleção
-          } else {
-            throw new Error('Falha ao deletar post');
-          }
-        } catch (error) {
-          alert('Erro ao deletar post: ' + error.message);
-        }
-      }
-    
-      fetchPosts();
-    </script>
+    });
+  </script>
 </body>
 </html>
-
