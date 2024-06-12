@@ -1,5 +1,6 @@
 body {
     background-color: #D4D8E2;
+    font-family: garamond;
 }
 
 nav {
@@ -70,11 +71,38 @@ nav .titulo {
 }
 
 .bloco-login {
-    width: 70%;
-    margin-left: 15%;
-    border: 1px solid black;
-    padding: 2em;
-    margin: 2em;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 2%;
+    padding: 3% 1% 10% 1%;
+    text-align: left;
+    align-items: center;
+    background-image: url(../imagens/login-back.jpg);
+    box-shadow: 1px 1px 1px#243663;
+    opacity: 80%;
+}
+
+.bloco-login a{
+    color:white;
+    margin:0.7em;
+}
+
+.campo{
+    width:70%;  
+    height:2em;
+    border: 1.5px solid #D3D3D3;
+    margin:0.5em 0.5em;
+    border-radius:7px;
+    opacity: 80%;
+
+}
+
+.botao{
+    width:60%;  
+    height:2em;
+    border: 1.5px solid #133485;
+    margin:0.5em;
+    background-color: #a1a5b1;
 }
 
 .bloco-ferramenta{

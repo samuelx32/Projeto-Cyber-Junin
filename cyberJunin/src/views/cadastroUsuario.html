@@ -56,18 +56,49 @@
     
 
     <div class="bloco-login">
-      <form method="post" action="/verificarLogin">
-        <input class="campo" id="nome" type="text" name="nome" placeholder="Insira seu Usuário"><p>
-        <input class="campo" id="senha" type="password" name="senha" placeholder="Insira sua Senha"><p>
+      <form id="createUserForm" >
+        <input class="campo" type="hidden" id="cargo" name="cargo" value="comum">
+        <input class="campo" type="text" id="nome" name="nome" placeholder="Insira seu Usuário"><p>
+        <input class="campo" type="text" id="email" name="email" placeholder="Insira seu email"><p>
+        <input class="campo" type="password" id="senha" name="password" placeholder="Insira sua Senha"><p>
         <input class="botao" type="submit" value="ENVIAR">
       </form>    
-      <a href="/cadastrar-usuario">Novo cadastro</a>
     </div>
 
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
-    
+    <script>
+        document.getElementById('createUserForm').addEventListener('submit', async function (event) {
+          event.preventDefault();
+          const formData = {
+            cargo: document.getElementById('cargo').value,
+            nome: document.getElementById('nome').value,
+            senha: document.getElementById('senha').value,
+            email: document.getElementById('email').value,
+          };
+          try {
+            const response = await fetch('/api/usuarios', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(formData),
+            });
+            if (response.ok) {
+              const data = await response.json();
+              alert('Post criado com sucesso! ID: ' + data.id);
+              // Opcional: limpar o formulário ou redirecionar
+              // document.getElementById('createPostForm').reset();
+              // window.location.href = '/listposts'; // Se você quiser redirecionar para a lista de posts
+            } else {
+              throw new Error('Falha ao criar post');
+            }
+          } catch (error) {
+            alert('Erro ao criar post: ' + error.message);
+          }
+        });
+      </script>
+  
   </body>
 </html>
+
