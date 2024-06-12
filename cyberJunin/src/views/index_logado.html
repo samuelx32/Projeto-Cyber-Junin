@@ -32,11 +32,22 @@
             <li class="nav-item">
               <a class="nav-link" aria-disabled="true" href="/ferramentas">Ferramentas</a>
             </li>
-            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrador
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Crud Usuário</a></li>
+                <li><a class="dropdown-item" href="/createpost">Crud Notícia</a></li>
+                <li><a class="dropdown-item" href="#">Crud Estudo</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Adicionar Estudo</a></li>
+              </ul>
+            </li>
             
           </ul>
-          <form class="d-flex" role="search" action="/login">
-            <button class="btn btn-secondary" type="submit">LOGIN</button>
+          <form class="d-flex" role="search" action="/sair">
+            <button class="btn btn-danger" type="submit">SAIR</button>
           </form>
         </div>
       </div>
@@ -44,7 +55,7 @@
 
     <div class="banner">
       <div class="container">
-      <h1 class="mb-5">MANTENHA-SE SEGURO <img src="static/imagens/secgif.gif" class="secgif"></h1>
+      <h1 class="mb-5">Seja Bem Vindo {{usuariologado}} <img src="static/imagens/secgif.gif" class="secgif"></h1>
       <div class="texto-inicial">
         <p>Com o nosso sistema você vai aprender sobre cyber securança, estará sempre atualizado e ainda terá tecnologias a disposição para tornar sua navegação na web mais segura.</p>
       </div>
