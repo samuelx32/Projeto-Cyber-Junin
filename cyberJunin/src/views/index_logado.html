@@ -27,7 +27,7 @@
               <a class="nav-link" href="/listposts">Notícias</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-disabled="true" href="/listestudos">Estudos</a>
+              <a class="nav-link" aria-disabled="true">Estudos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-disabled="true" href="/ferramentas">Ferramentas</a>
@@ -39,18 +39,15 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Crud Usuário</a></li>
                 <li><a class="dropdown-item" href="/createpost">Crud Notícia</a></li>
-                <li><a class="dropdown-item" href="/educational-contents">Crud Estudo</a></li>
-                <li><a class="dropdown-item" href="/createcyberattack">Crud Golpes</a></li>
+                <li><a class="dropdown-item" href="#">Crud Estudo</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/listcyberattacks">Consultar Golpes</a></li>
+                <li><a class="dropdown-item" href="#">Adicionar Estudo</a></li>
               </ul>
-              <a class="nav-link" aria-disabled="true" href="/listferramentas">Ferramentas</a>
             </li>
             
-            
           </ul>
-          <form class="d-flex" role="search" action="/login">
-            <button class="btn btn-secondary" type="submit">LOGIN</button>
+          <form class="d-flex" role="search" action="/sair">
+            <button class="btn btn-danger" type="submit">SAIR</button>
           </form>
         </div>
       </div>
@@ -58,7 +55,7 @@
 
     <div class="banner">
       <div class="container">
-      <h1 class="mb-5">MANTENHA-SE SEGURO <img src="static/imagens/secgif.gif" class="secgif"></h1>
+      <h1 class="mb-5">Seja Bem Vindo {{usuariologado}} <img src="static/imagens/secgif.gif" class="secgif"></h1>
       <div class="texto-inicial">
         <p>Com o nosso sistema você vai aprender sobre cyber securança, estará sempre atualizado e ainda terá tecnologias a disposição para tornar sua navegação na web mais segura.</p>
       </div>
@@ -103,7 +100,7 @@
             <div class="texto-estudo">
               <h3>O que é um Firewall?</h3>
               <p>Um firewall é um sistema de segurança de rede que monitora e controla o tráfego de rede com base em regras de segurança predeterminadas. Ele pode ser um dispositivo de hardware, um software ou uma combinação dos dois, projetado para proteger redes e computadores de acessos não autorizados, ataques e outras ameaças.</p>
-              <a href="/listestudos" class="btn btn-primary">Obter mais conhecimento</a>
+              <a href="#" class="btn btn-primary">Obter mais conhecimento</a>
             </div>
 
             <img src="static/imagens/estudos.png" class="imagem">
