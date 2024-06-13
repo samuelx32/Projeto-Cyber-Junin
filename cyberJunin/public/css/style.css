@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-*{
+* {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -35,8 +35,10 @@ nav .titulo {
 
 .banner {
     background-image: url(../imagens/banner_sec.jpg);
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
     background-size: cover;
     color: #D4D8E2;
     padding: 7em;
@@ -72,7 +74,8 @@ nav .titulo {
 
 .bloco .imagem {
     width: 20%;
-    max-width: 100px; /* Adicionado para limitar o tamanho da imagem */
+    max-width: 100px;
+    /* Adicionado para limitar o tamanho da imagem */
     margin-right: 5%;
 }
 
@@ -88,89 +91,111 @@ nav .titulo {
     opacity: 80%;
 }
 
-.bloco-login a{
-    color:white;
-    margin:0.7em;
+.bloco-login a {
+    color: white;
+    margin: 0.7em;
 }
 
-.campo{
-    width:70%;  
-    height:2em;
+.campo {
+    width: 70%;
+    height: 2em;
     border: 1.5px solid #D3D3D3;
-    margin:0.5em 0.5em;
-    border-radius:7px;
+    margin: 0.5em 0.5em;
+    border-radius: 7px;
     opacity: 80%;
 
 }
 
-.botao{
-    width:60%;  
-    height:2em;
+.botao {
+    width: 60%;
+    height: 2em;
     border: 1.5px solid #133485;
-    margin:0.5em;
+    margin: 0.5em;
     background-color: #a1a5b1;
 }
 
-.bloco-ferramenta img{
-    width:10%;
+.bloco-ferramenta img {
+    width: 10%;
 }
+
 /* Estilos para o container que engloba todas as ferramentas */
 .container-ferramentas {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2em; /* Espaçamento entre cada bloco de ferramenta */
+    gap: 2em;
+    /* Espaçamento entre cada bloco de ferramenta */
     margin-top: 8em;
     background-color: #243663;
     padding: 2em;
     border-radius: 10px;
     margin: 5em;
-  }
+}
 
 /* Estilos para cada bloco de ferramenta */
 .bloco-ferramenta {
-    background-color: #D4D8E2; /* Fundo branco para limpeza visual */
-    border: 1px solid #061233; /* Borda sutil */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra suave para profundidade */
-    border-radius: 10px; /* Bordas arredondadas para suavidade */
-    width: 80%; /* Largura relativa para responsividade */
-    max-width: 350px; /* Largura máxima para consistência */
-    padding: 2em; /* Espaçamento interno */
-    text-align: center; /* Texto centralizado */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para interação */
+    background-color: #D4D8E2;
+    /* Fundo branco para limpeza visual */
+    border: 1px solid #061233;
+    /* Borda sutil */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* Sombra suave para profundidade */
+    border-radius: 10px;
+    /* Bordas arredondadas para suavidade */
+    width: 80%;
+    /* Largura relativa para responsividade */
+    max-width: 350px;
+    /* Largura máxima para consistência */
+    padding: 2em;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Texto centralizado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transição suave para interação */
 }
 
 .bloco-ferramenta:hover {
-    transform: translateY(-5px); /* Elevação suave ao passar o mouse */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra mais intensa ao passar o mouse */
+    transform: translateY(-5px);
+    /* Elevação suave ao passar o mouse */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    /* Sombra mais intensa ao passar o mouse */
     background-color: #d4d8e2b7;
 }
 
 /* Estilos para o título de cada ferramenta */
 .titulo-ferramenta a {
-    font-size: 1.25rem; /* Tamanho de fonte maior para destaque */
-    color: #061233; /* Cor de destaque */
-    text-decoration: none; /* Remover sublinhado de links */
-    transition: color 0.3s ease; /* Transição suave para interação */
+    font-size: 1.25rem;
+    /* Tamanho de fonte maior para destaque */
+    color: #061233;
+    /* Cor de destaque */
+    text-decoration: none;
+    /* Remover sublinhado de links */
+    transition: color 0.3s ease;
+    /* Transição suave para interação */
 }
 
 .titulo-ferramenta a:hover {
-    color: #010716; /* Cor mais escura ao passar o mouse */
+    color: #010716;
+    /* Cor mais escura ao passar o mouse */
 }
 
 /* Estilos para o título da página */
 .titulo-pagina {
-    text-align: center; /* Centraliza o texto */
-    margin: 2em 2em; /* Adiciona espaço acima e abaixo do título */
+    text-align: center;
+    /* Centraliza o texto */
+    margin: 2em 2em;
+    /* Adiciona espaço acima e abaixo do título */
 }
 
 .titulo-pagina h2 {
-    color: #061233; /* Define a cor do texto */
-    font-size: 2rem; /* Tamanho da fonte */
+    color: #061233;
+    /* Define a cor do texto */
+    font-size: 2rem;
+    /* Tamanho da fonte */
     font-weight: 700;
 }
-  
+
 
 .texto-estudo {
     width: 40%;
@@ -200,26 +225,31 @@ nav .titulo {
     position: fixed;
     bottom: 0;
     width: 100%;
-  }
+}
 
 .result-container {
     display: flex;
-    flex-direction: column; /* Altera a direção do flex somente para os resultados */
+    flex-direction: column;
+    /* Altera a direção do flex somente para os resultados */
     align-items: center;
     width: 100%;
     margin-top: 20px;
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: left;
+    /* Alinha o texto à esquerda */
 }
 
 .result-item {
-    width: 80%; /* Define uma largura fixa para os itens */
-    max-width: 500px; /* Define uma largura máxima para os itens */
+    width: 80%;
+    /* Define uma largura fixa para os itens */
+    max-width: 500px;
+    /* Define uma largura máxima para os itens */
     padding: 10px;
     margin: 5px 0;
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     border-radius: 5px;
-    text-align: center; /* Centraliza o texto dentro do item */
+    text-align: center;
+    /* Centraliza o texto dentro do item */
 }
 
 @media only screen and (max-width: 940px) {
@@ -233,6 +263,7 @@ nav .titulo {
         padding: 2em;
         margin-left: 5%;
     }
+
     .card {
         margin-bottom: 1em;
     }
@@ -240,14 +271,17 @@ nav .titulo {
     .banner {
         width: 100%;
     }
+
     .secgif {
         width: 30%;
     }
+
     .texto-inicial {
         width: 100%;
         margin-left: 0;
         text-align: center;
     }
+
     .texto-estudo {
         width: 100%;
     }
@@ -258,16 +292,20 @@ nav .titulo {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Adiciona um espaçamento entre os elementos */
+    gap: 10px;
+    /* Adiciona um espaçamento entre os elementos */
 }
 
 .form-url input {
-    flex: 1; /* Faz com que o input ocupe o espaço disponível */
+    flex: 1;
+    /* Faz com que o input ocupe o espaço disponível */
 }
 
 .form-bttn {
-    margin-left: 10px; /* Espaçamento entre o input e o botão */
-    flex-shrink: 0; /* Impede que o botão diminua de tamanho */
+    margin-left: 10px;
+    /* Espaçamento entre o input e o botão */
+    flex-shrink: 0;
+    /* Impede que o botão diminua de tamanho */
 }
 
 .form-cadastro-golpe {
@@ -278,7 +316,7 @@ nav .titulo {
     max-width: 500px;
     width: 100%;
 }
-  
+
 .form-cadastro-golpe h1 {
     color: #333;
     text-align: center;
@@ -318,49 +356,70 @@ nav .titulo {
 
 /* Estilos para o resumo da análise */
 .summary {
-    background-color: #f8f9fa; /* Cor de fundo clara */
-    border-left: 4px solid #007bff; /* Borda esquerda destacada */
-    padding: 20px; /* Espaçamento interno */
-    margin-bottom: 20px; /* Espaçamento externo abaixo do elemento */
-    border-radius: 5px; /* Bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background-color: #D4D8E2;
+    /* Cor de fundo clara */
+    border-left: 4px solid #061233;
+    /* Borda esquerda destacada */
+    padding: 20px;
+    /* Espaçamento interno */
+    margin-bottom: 20px;
+    /* Espaçamento externo abaixo do elemento */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
 }
 
 .summary h2 {
     margin-top: 0;
-    color: #007bff; /* Cor que combina com a borda esquerda */
-    margin-bottom: 15px; /* Espaçamento abaixo do título */
+    color: #061233;
+    /* Cor que combina com a borda esquerda */
+    margin-bottom: 15px;
+    /* Espaçamento abaixo do título */
 }
 
 .summary ul {
-    list-style-type: none; /* Remove estilos de lista */
+    list-style-type: none;
+    /* Remove estilos de lista */
     padding: 0;
     margin: 0;
 }
 
 .summary ul li {
-    margin: 5px 0; /* Espaçamento entre itens da lista */
-    padding: 5px 0; /* Espaçamento interno dos itens */
-    border-bottom: 1px solid #e9ecef; /* Linha separadora */
+    margin: 5px 0;
+    /* Espaçamento entre itens da lista */
+    padding: 5px 0;
+    /* Espaçamento interno dos itens */
+    border-bottom: 1px solid #e9ecef;
+    /* Linha separadora */
 }
 
 /* Estilos para os itens de resultado */
 .result-item {
-    background-color: #fff; /* Cor de fundo branca */
-    border: 1px solid #dee2e6; /* Borda sutil */
-    padding: 15px; /* Espaçamento interno */
-    margin-bottom: 10px; /* Espaçamento externo abaixo do elemento */
-    border-radius: 5px; /* Bordas arredondadas */
-    transition: all 0.3s ease; /* Transição suave para hover */
+    background-color: #D4D8E2;
+    /* Cor de fundo branca */
+    border: 1px solid #6476A3;
+    /* Borda sutil */
+    padding: 15px;
+    /* Espaçamento interno */
+    margin-bottom: 10px;
+    /* Espaçamento externo abaixo do elemento */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    transition: all 0.3s ease;
+    /* Transição suave para hover */
 }
 
 .result-item:hover {
-    background-color: #f8f9fa; /* Cor de fundo ao passar o mouse */
-    transform: translateY(-2px); /* Eleva o item ao passar o mouse */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao passar o mouse */
+    background-color: #9fa2a8;
+    /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px);
+    /* Eleva o item ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra ao passar o mouse */
 }
 
 .result-item strong {
-    color: #007bff; /* Cor para destacar informações importantes */
+    color: #061233;
+    /* Cor para destacar informações importantes */
 }
-  

@@ -76,6 +76,17 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script>
+        function formatarData(dataStr) {
+            if (dataStr.length !== 8) {
+                return dataStr; // Retorna a string original se não estiver no formato esperado
+            }
+
+            const ano = dataStr.substring(0, 4);
+            const mes = dataStr.substring(4, 6);
+            const dia = dataStr.substring(6, 8);
+
+            return `${dia}/${mes}/${ano}`;
+        }
         document.getElementById('fileForm').addEventListener('submit', async function (event) {
             event.preventDefault();
             const file = document.getElementById('file').files[0];
@@ -102,7 +113,7 @@
                         const stats = attributes.stats;
                         const summaryHtml = `
                             <div class="summary">
-                                <h2>Resumo da Análise</h2>
+                                <h2 class='titulo-pagina'>Resumo da Análise</h2>
                                 <ul>
                                     <li>Malicioso: ${stats.malicious}</li>
                                     <li>Suspeito: ${stats.suspicious}</li>
@@ -122,7 +133,7 @@
                         if (results && Object.keys(results).length > 0) {
                             const engineResultsHtml = Object.entries(results).map(([engine, data]) => `
                                 <div class="result-item">
-                                    <strong>${data.engine_name} (Versão: ${data.engine_version}, Atualizado em: ${data.engine_update}):</strong> ${data.result || 'Indetectado'}
+                                    <strong>${data.engine_name} (Versão: ${data.engine_version}, Atualizado em: ${formatarData(data.engine_update)}):</strong> ${data.result || 'Indetectado'}
                                 </div>
                             `).join('');
                             resultsDiv.innerHTML += `<h2>Resultados por Engine</h2>${engineResultsHtml}`;
