@@ -51,12 +51,12 @@ app.listen(PORT, function () {
 })
 
 app.get('/', function (req, res) {
-    if (logado){
-        res.render('index_logado.html',{usuariologado})
-    }else{
+    if (logado) {
+        res.render('index_logado.html', { usuariologado })
+    } else {
         res.render('index.html')
     }
-    
+
 })
 
 app.get('/sair', function (req, res) {
@@ -72,33 +72,37 @@ app.get('/login', function (req, res) {
 app.get('/verificacaourl', function (req, res) {
     res.render('verificacao-url.html')
 })
+app.get('/verificacaoarquivos', function (req, res) {
+    res.render('verificacao-arquivos.html')
+})
 
 
-app.post('/verificarLogin',function(req,res){
+
+app.post('/verificarLogin', function (req, res) {
     nome = req.body.nome
     senha = req.body.senha
 
     let sql = `SELECT * FROM usuarios WHERE nome = ? and senha = ?`;
 
-    db.get(sql, [nome,senha], (err, row) => {
+    db.get(sql, [nome, senha], (err, row) => {
         if (err) {
             res.redirect('/login')
             return console.error(err.message);
-            
-        }else{
-            if (row){
+
+        } else {
+            if (row) {
                 logado = true
                 usuariologado = nome
                 res.redirect('/')
-            }else{
+            } else {
                 res.redirect('/login')
-            } 
+            }
         }
-        
-            
+
+
     });
 
-    
+
 })
 
 //cruds
