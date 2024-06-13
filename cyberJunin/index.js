@@ -11,7 +11,7 @@ const postRoutes = require('./src/routes/postContentRoutes')
 const usuarioRoutes = require('./src/routes/usuarioContentRoutes')
 const EducationalContent = require('./src/routes/EducationalContentRoutes')
 const cyberAttackRoutes = require('./src/routes/CyberAttackRoutes')
-
+const senhaRoutes = require('./src/routes/senhaRoutes') 
 
 let db = new sqlite3.Database('./database.sqlite', (err) => {
     if (err) {
@@ -40,6 +40,7 @@ app.use('/api/posts', postRoutes)
 app.use('/api/usuarios', usuarioRoutes)
 app.use('/api/cyberattacks', cyberAttackRoutes)
 app.use('/api/educational-contents', EducationalContent)
+app.use('/api/senha', senhaRoutes)
 app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
 
@@ -76,6 +77,9 @@ app.get('/verificacaoarquivos', function (req, res) {
     res.render('verificacao-arquivos.html')
 })
 
+app.get('/verificasenha', function (req, res) {
+    res.render('verificasenha.html')
+})
 
 
 app.post('/verificarLogin', function (req, res) {
@@ -119,11 +123,9 @@ app.get('/listferramentas', function (req, res) {
     res.render('listFerramentas.html')
 })
 
-
 app.get('/cadastrar-usuario', function (req, res) {
     res.render('cadastroUsuario.html')
 })
-
 
 app.get('/noticias', function (req, res) {
     res.render('noticias.html')
@@ -132,8 +134,6 @@ app.get('/noticias', function (req, res) {
 app.get('/createpost', function (req, res) {
     res.render('createPost.html')
 })
-
-
 
 app.get('/listposts', function (req, res) {
     res.render('listPosts.html')
