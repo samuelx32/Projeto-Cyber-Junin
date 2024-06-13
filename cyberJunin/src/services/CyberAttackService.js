@@ -12,13 +12,13 @@ const getCyberAttackById = async (id) => {
     return await CyberAttack.findByPk(id)
 }
 
-const uptadeCyberAttack = async (id, data) => {
-    await CyberAttack.uptade(data, {where: {id}})
+const updateCyberAttack = async (id, data) => {
+    await CyberAttack.update(data, { where: { id } })
     return await CyberAttack.findByPk(id)
 }
 
 const deleteCyberAttack = async (id) => {
-    return await CyberAttack.destroy({where: {id}})
+    return await CyberAttack.destroy({ where: { id } })
 }
 
 
@@ -26,6 +26,6 @@ module.exports = {
     createCyberAttack,
     getAllCyberAttacks,
     getCyberAttackById,
-    uptadeCyberAttack,
+    updateCyberAttack,
     deleteCyberAttack
 }

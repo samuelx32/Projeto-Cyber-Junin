@@ -12,6 +12,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg menu" data-bs-theme="dark">
+
     <div class="container">
       <img src="static/imagens/Junin.png" class="logo" alt="logo">
       <a class="navbar-brand titulo" href="#">CYBER JUNIN</a>
@@ -49,6 +50,8 @@
             </ul>
             <a class="nav-link" aria-disabled="true" href="/listferramentas">Ferramentas</a>
           </li>
+
+
         </ul>
         <form class="d-flex" role="search" action="/login">
           <button class="btn btn-secondary" type="submit">LOGIN</button>
@@ -60,6 +63,7 @@
   <div class="container">
     <h1>Criar Golpe Cibernético</h1>
     <form id="createCyberAttackForm" class="form-cadastro-golpe">
+      <input type="hidden" id="cyberAttackId">
       <label for="title">Título:</label>
       <input type="text" id="title" name="title" required><br><br>
       <label for="description">Descrição:</label>
@@ -100,6 +104,7 @@
   <script>
     document.getElementById('createCyberAttackForm').addEventListener('submit', async function (event) {
       event.preventDefault();
+      const id = document.getElementById('cyberAttackId').value;
       const formData = {
         title: document.getElementById('title').value,
         description: document.getElementById('description').value,
@@ -109,19 +114,59 @@
         prevention: document.getElementById('prevention').value,
         impact: document.getElementById('impact').value,
       };
-      try {
-        const response = await fetch('/api/cyberattacks', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        });
-        const data = await response.json();
-        alert('Golpe cibernético criado com sucesso!');
-        fetchCyberAttacks();
-      } catch (error) {
-        alert('Erro ao criar golpe cibernético: ' + error.message);
+
+      if (id) {
+        // Update existing cyber attack
+        try {
+          const response = await fetch(`/api/cyberattacks/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+          });
+          if (response.ok) {
+            alert('Golpe cibernético atualizado com sucesso!');
+            fetchCyberAttacks();
+            document.getElementById('cyberAttackId').value = '';
+            event.target.reset();
+          } else {
+            throw new Error('Falha ao atualizar golpe cibernético');
+          }
+        } catch (error) {
+          alert('Erro ao atualizar golpe cibernético: ' + error.message);
+        }
+      } else {
+        // Create new cyber attack
+        try {
+          const response = await fetch('/api/cyberattacks', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+          });
+          const data = await response.json();
+          alert('Golpe cibernético criado com sucesso!');
+          fetchCyberAttacks();
+          event.target.reset();
+        } catch (error) {
+          alert('Erro ao criar golpe cibernético: ' + error.message);
+        }
       }
     });
+
+    async function editCyberAttack(id) {
+      const cyberattack = await fetchCyberAttackById(id);
+      if (!cyberattack) {
+        alert('Golpe cibernético não encontrado.');
+        return;
+      }
+      document.getElementById('cyberAttackId').value = cyberattack.id;
+      document.getElementById('title').value = cyberattack.title;
+      document.getElementById('description').value = cyberattack.description;
+      document.getElementById('commonMedium').value = cyberattack.commonMedium;
+      document.getElementById('targetAudience').value = cyberattack.targetAudience;
+      document.getElementById('identificationDate').value = cyberattack.identificationDate;
+      document.getElementById('prevention').value = cyberattack.prevention;
+      document.getElementById('impact').value = cyberattack.impact;
+    }
 
     async function fetchCyberAttacks() {
       try {
@@ -136,24 +181,38 @@
             year: 'numeric'
           });
           const row = `
-            <tr>
-              <td>${cyberattack.title}</td>
-              <td>${cyberattack.description}</td>
-              <td>${cyberattack.commonMedium}</td>
-              <td>${cyberattack.targetAudience}</td>
-              <td>${formattedDate}</td>
-              <td>${cyberattack.prevention}</td>
-              <td>${cyberattack.impact}</td>
-              <td>
-                <button class="btn btn-sm btn-warning" onclick="editCyberAttack(${cyberattack.id})">Editar</button>
-                <button class="btn btn-sm btn-danger" onclick="deleteCyberAttack(${cyberattack.id})">Deletar</button>
-              </td>
-            </tr>
-          `;
+        <tr>
+          <td>${cyberattack.title}</td>
+          <td>${cyberattack.description}</td>
+          <td>${cyberattack.commonMedium}</td>
+          <td>${cyberattack.targetAudience}</td>
+          <td>${formattedDate}</td>
+          <td>${cyberattack.prevention}</td>
+          <td>${cyberattack.impact}</td>
+          <td>
+            <button class="btn btn-sm btn-warning" onclick="editCyberAttack(${cyberattack.id})">Editar</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteCyberAttack(${cyberattack.id})">Deletar</button>
+          </td>
+        </tr>
+      `;
           cyberAttackList.innerHTML += row;
         });
       } catch (error) {
         console.error('Erro ao buscar golpes cibernéticos:', error);
+      }
+    }
+
+    async function fetchCyberAttackById(id) {
+      try {
+        const response = await fetch(`/api/cyberattacks/${id}`);
+        if (response.ok) {
+          return await response.json();
+        } else {
+          throw new Error('Falha ao buscar golpe cibernético');
+        }
+      } catch (error) {
+        console.error('Erro ao buscar golpe cibernético:', error);
+        return null;
       }
     }
 
@@ -170,68 +229,6 @@
         }
       } catch (error) {
         alert('Erro ao deletar golpe cibernético: ' + error.message);
-      }
-    }
-
-    async function editCyberAttack(id) {
-      const cyberattack = await fetchCyberAttackById(id);
-      if (!cyberattack) {
-        alert('Golpe cibernético não encontrado.');
-        return;
-      }
-      document.getElementById('title').value = cyberattack.title;
-      document.getElementById('description').value = cyberattack.description;
-      document.getElementById('commonMedium').value = cyberattack.commonMedium;
-      document.getElementById('targetAudience').value = cyberattack.targetAudience;
-      document.getElementById('identificationDate').value = cyberattack.identificationDate;
-      document.getElementById('prevention').value = cyberattack.prevention;
-      document.getElementById('impact').value = cyberattack.impact;
-
-      const form = document.getElementById('createCyberAttackForm');
-      form.removeEventListener('submit', createCyberAttackHandler);
-      form.addEventListener('submit', async function updateCyberAttackHandler(event) {
-        event.preventDefault();
-        const updatedFormData = {
-          title: document.getElementById('title').value,
-          description: document.getElementById('description').value,
-          commonMedium: document.getElementById('commonMedium').value,
-          targetAudience: document.getElementById('targetAudience').value,
-          identificationDate: document.getElementById('identificationDate').value,
-          prevention: document.getElementById('prevention').value,
-          impact: document.getElementById('impact').value,
-        };
-        try {
-          const response = await fetch(`/api/cyberattacks/${id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updatedFormData),
-          });
-          if (response.ok) {
-            alert('Golpe cibernético atualizado com sucesso!');
-            fetchCyberAttacks();
-            form.removeEventListener('submit', updateCyberAttackHandler);
-            form.addEventListener('submit', createCyberAttackHandler);
-            form.reset();
-          } else {
-            throw new Error('Falha ao atualizar golpe cibernético');
-          }
-        } catch (error) {
-          alert('Erro ao atualizar golpe cibernético: ' + error.message);
-        }
-      });
-    }
-
-    async function fetchCyberAttackById(id) {
-      try {
-        const response = await fetch(`/api/cyberattacks/${id}`);
-        if (response.ok) {
-          return await response.json();
-        } else {
-          throw new Error('Falha ao buscar golpe cibernético');
-        }
-      } catch (error) {
-        console.error('Erro ao buscar golpe cibernético:', error);
-        return null;
       }
     }
 
