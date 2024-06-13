@@ -11,7 +11,7 @@ const postRoutes = require('./src/routes/postContentRoutes')
 const usuarioRoutes = require('./src/routes/usuarioContentRoutes')
 const EducationalContent = require('./src/routes/EducationalContentRoutes')
 const cyberAttackRoutes = require('./src/routes/CyberAttackRoutes')
-const senhaRoutes = require('./src/routes/senhaRoutes') 
+const senhaRoutes = require('./src/routes/senhaRoutes')
 
 let db = new sqlite3.Database('./database.sqlite', (err) => {
     if (err) {
