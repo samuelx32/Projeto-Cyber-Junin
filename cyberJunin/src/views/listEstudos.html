@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg menu" data-bs-theme="dark">
+
         <div class="container">
             <img src="static/imagens/Junin.png" class="logo" alt="logo">
             <a class="navbar-brand titulo" href="#">CYBER JUNIN</a>
@@ -31,8 +33,26 @@
                         <a class="nav-link" aria-disabled="true" href="/listestudos">Estudos</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="/listFerramentas">Ferramentas</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Administrador
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Crud Usuário</a></li>
+                            <li><a class="dropdown-item" href="/createpost">Crud Notícia</a></li>
+                            <li><a class="dropdown-item" href="/educational-contents">Crud Estudo</a></li>
+                            <li><a class="dropdown-item" href="/createcyberattack">Crud Golpes</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/listcyberattacks">Consultar Golpes</a></li>
+                        </ul>
                         <a class="nav-link" aria-disabled="true" href="/listferramentas">Ferramentas</a>
                     </li>
+
 
                 </ul>
                 <form class="d-flex" role="search" action="/login">
@@ -42,8 +62,9 @@
         </div>
     </nav>
 
-    <h2>Lista de Conteúdos Educacionais</h2>
+
     <table class="table table-striped">
+        <h2 class="titulo-pagina">Lista de Conteúdos Educacionais</h2>
         <thead>
             <tr>
                 <th>ID</th>
@@ -94,4 +115,5 @@
         });
     </script>
 </body>
+
 </html>
