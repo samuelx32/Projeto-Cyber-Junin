@@ -111,13 +111,25 @@ nav .titulo {
     background-color: #a1a5b1;
 }
 
-.bloco-ferramenta{
-    background-color: #F2F2F2;
-    margin-top:3em;
+/* Melhorias para .bloco-ferramenta */
+.bloco-ferramenta {
+    background-color: #ffffff; /* Fundo branco para maior contraste e limpeza */
+    margin-top: 3em;
     margin-bottom: 7em;
-    padding:2em 4em;
-    box-shadow: 3px 3px 3px black;
+    padding: 2em 4em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais suave para um look moderno */
+    border-radius: 8px; /* Bordas arredondadas para um design mais suave */
 }
+
+/* Melhorias para .titulo-ferramenta */
+.titulo-ferramenta {
+    font-size: 1.5rem; /* Tamanho de fonte maior para destaque */
+    color: #333333; /* Cor escura para contraste */
+    margin-bottom: 1.5em; /* Espaço abaixo do título */
+    text-align: center; /* Centralizar o título */
+}
+
+
 
 .bloco-ferramenta img{
     width:10%;
@@ -146,12 +158,15 @@ nav .titulo {
     border-bottom: 1px solid #D4D8E2;
 }
 
-footer {
-    background-color: black;
+.footer {
+    background-color: #333;
     color: white;
-    padding: 2em;
     text-align: center;
-}
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 
 .result-container {
     display: flex;
@@ -267,3 +282,51 @@ footer {
     background-color: #4cae4c;
 }
 
+/* Estilos para o resumo da análise */
+.summary {
+    background-color: #f8f9fa; /* Cor de fundo clara */
+    border-left: 4px solid #007bff; /* Borda esquerda destacada */
+    padding: 20px; /* Espaçamento interno */
+    margin-bottom: 20px; /* Espaçamento externo abaixo do elemento */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.summary h2 {
+    margin-top: 0;
+    color: #007bff; /* Cor que combina com a borda esquerda */
+    margin-bottom: 15px; /* Espaçamento abaixo do título */
+}
+
+.summary ul {
+    list-style-type: none; /* Remove estilos de lista */
+    padding: 0;
+    margin: 0;
+}
+
+.summary ul li {
+    margin: 5px 0; /* Espaçamento entre itens da lista */
+    padding: 5px 0; /* Espaçamento interno dos itens */
+    border-bottom: 1px solid #e9ecef; /* Linha separadora */
+}
+
+/* Estilos para os itens de resultado */
+.result-item {
+    background-color: #fff; /* Cor de fundo branca */
+    border: 1px solid #dee2e6; /* Borda sutil */
+    padding: 15px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaçamento externo abaixo do elemento */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: all 0.3s ease; /* Transição suave para hover */
+}
+
+.result-item:hover {
+    background-color: #f8f9fa; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Eleva o item ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao passar o mouse */
+}
+
+.result-item strong {
+    color: #007bff; /* Cor para destacar informações importantes */
+}
+  

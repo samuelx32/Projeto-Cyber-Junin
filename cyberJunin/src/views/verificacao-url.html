@@ -92,15 +92,43 @@
                 const resultsDiv = document.getElementById('result');
                 resultsDiv.innerHTML = '';
 
-                if (result && result.data && result.data.attributes && result.data.attributes.results) {
-                    for (const [engine, data] of Object.entries(result.data.attributes.results)) {
-                        const resultElement = document.createElement('div');
-                        resultElement.classList.add('result-item');
-                        resultElement.innerHTML = `<strong>${engine}:</strong> ${data.result}`;
-                        resultsDiv.appendChild(resultElement);
-                    }
-                    if (result.data.attributes == '' || result.data.attributes == ' ' || result.data.attributes == null) {
-                        resultsDiv.innerHTML = '<p>Nenhum resultado encontrado.</p>';
+                if (result && result.data && result.data.attributes) {
+                    const attributes = result.data.attributes;
+
+                    if (attributes.status === 'completed') {
+                        // Sumário
+                        const stats = attributes.stats;
+                        const summaryHtml = `
+                            <div class="summary">
+                                <h2>Resumo da Análise</h2>
+                                <ul>
+                                    <li>Malicioso: ${stats.malicious}</li>
+                                    <li>Suspeito: ${stats.suspicious}</li>
+                                    <li>Indetectado: ${stats.undetected}</li>
+                                    <li>Inofensivo: ${stats.harmless}</li>
+                                    <li>Timeout: ${stats.timeout}</li>
+                                    <li>Timeout Confirmado: ${stats['confirmed-timeout']}</li>
+                                    <li>Falha: ${stats.failure}</li>
+                                    <li>Tipo Não Suportado: ${stats['type-unsupported']}</li>
+                                </ul>
+                            </div>
+                        `;
+                        resultsDiv.innerHTML += summaryHtml;
+
+                        // Resultados por Engine
+                        const results = attributes.results;
+                        if (results && Object.keys(results).length > 0) {
+                            const engineResultsHtml = Object.entries(results).map(([engine, data]) => `
+                                <div class="result-item">
+                                    <strong>${data.engine_name} (Versão: ${data.engine_version}, Atualizado em: ${data.engine_update}):</strong> ${data.result || 'Indetectado'}
+                                </div>
+                            `).join('');
+                            resultsDiv.innerHTML += `<h2>Resultados por Engine</h2>${engineResultsHtml}`;
+                        } else {
+                            resultsDiv.innerHTML += '<p>Nenhum resultado encontrado.</p>';
+                        }
+                    } else {
+                        resultsDiv.innerHTML = '<p>A análise ainda não foi concluída. Por favor, tente novamente mais tarde.</p>';
                     }
                 } else {
                     resultsDiv.innerHTML = '<p>Nenhum resultado encontrado.</p>';
