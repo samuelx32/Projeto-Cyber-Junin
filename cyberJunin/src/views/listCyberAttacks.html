@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Golpes Cibernéticos</title>
+</head>
+<body>
+    <h1>Lista de Golpes Cibernéticos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Método Comum</th>
+                <th>Público Alvo</th>
+                <th>Prevenção</th>
+            </tr>
+        </thead>
+        <tbody id="cyberAttackTableBody">
+            <!-- Os dados serão inseridos aqui pelo JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const response = await fetch('/api/cyberattacks', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                const cyberAttacks = await response.json();
+
+                const tableBody = document.getElementById('cyberAttackTableBody');
+                cyberAttacks.forEach(cyberAttack => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${cyberAttack.id}</td>
+                        <td>${cyberAttack.title}</td>
+                        <td>${cyberAttack.description}</td>
+                        <td>${cyberAttack.commonMedium}</td>
+                        <td>${cyberAttack.targetAudience}</td>
+                        <td>${cyberAttack.prevention}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar golpes cibernéticos:', error);
+            }
+        });
+    </script>
+</body>
+</html>

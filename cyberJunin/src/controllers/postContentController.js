@@ -35,7 +35,7 @@ exports.getPostById = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
     try {
-        const post = await postService.uptadePost(req.params.id, req.body)
+        const post = await postService.updatePost(req.params.id, req.body)
         if (!post) {
             return res.status(404).json({ error: 'Post não encontrado.' })
         }

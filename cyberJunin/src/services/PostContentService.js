@@ -14,7 +14,7 @@ const getPostById = async (id) => {
 }
 
 const updatePost = async (id, data) => {
-    await Post.updatePost(data, { where: { id } })
+    await Post.update(data, { where: { id } })
     return await Post.findByPk(id)
 }
 
