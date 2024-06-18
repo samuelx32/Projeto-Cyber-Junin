@@ -79,7 +79,7 @@ nav .titulo {
 
 .bloco-login {
     width: 100%;
-    padding: 3% 1% 0% 9%;
+    padding: 3% 1% 0% 0%;
     text-align: left;
     align-items: center;
     background-image: url(../imagens/login-back.jpg);
@@ -93,7 +93,7 @@ nav .titulo {
 
 .bloco-login a{
     color:white;
-    margin:0.7em;
+    margin:0.7em 0em;
 }
 
 .campo{
@@ -189,6 +189,28 @@ nav .titulo {
     padding-right: 1em;
 }
 
+.titulo-forms {
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem; /* Tamanho de fonte maior para destaque */
+    color: #D4D8E2;; /* Cor escura para contraste */
+    text-align: center; /* Centralizar o título */
+    padding-right: 1em;
+}
+
+.container-forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em; /* Espaçamento entre cada bloco de ferramenta */
+    margin-top: 8em;
+    background-color: #243663;
+    padding: 2em;
+    border-radius: 10px;
+    margin: 5em;
+}
 
 .container-ferramentas2 {
     display: flex;

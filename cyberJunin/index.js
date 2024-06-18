@@ -23,6 +23,7 @@ let db = new sqlite3.Database('./database.sqlite', (err) => {
 const app = express()
 const PORT = 8080;
 
+let idusuario = 0
 let usuariologado = ""
 let logado = false
 let deslogado = true
@@ -96,6 +97,7 @@ app.post('/verificarLogin', function (req, res) {
                 logado = true
                 deslogado=false
                 usuariologado = nome
+                idusuario = row.id
                 res.redirect('/')
             } else {
                 res.redirect('/login')
@@ -106,6 +108,31 @@ app.post('/verificarLogin', function (req, res) {
     });
 
 
+})
+
+app.get('/atualizar-usuario', function (req, res) {
+    let sql = `SELECT * FROM usuarios WHERE id = ?`;
+
+    db.get(sql, [idusuario], (err, row) => {
+        if (err) {
+            res.redirect('/')
+            return console.error(err.message);
+
+        } else {
+            if (row) {
+                nomeU = row.nome
+                emailU = row.email
+                senhaU = row.senha
+                res.render('atualizarUsuario.html',{logado,deslogado,usuariologado,idusuario,nomeU,emailU,senhaU})
+            } else {
+                res.redirect('/')
+            }
+        }
+
+
+    });
+    
+    
 })
 
 //cruds
@@ -130,6 +157,8 @@ app.get('/listcyberattacks', function (req, res) {
 app.get('/cadastrar-usuario', function (req, res) {
     res.render('cadastroUsuario.html',{logado,deslogado,usuariologado})
 })
+
+
 
 app.get('/noticias', function (req, res) {
     res.render('noticias.html',{logado,deslogado,usuariologado})

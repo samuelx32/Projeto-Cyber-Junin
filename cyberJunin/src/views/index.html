@@ -78,11 +78,21 @@
 
   <div class="banner">
     <div class="container">
+      {{#deslogado}}
       <h1 class="mb-5">MANTENHA-SE SEGURO <img src="static/imagens/secgif.gif" class="secgif"></h1>
       <div class="texto-inicial">
         <p>Com o nosso sistema você vai aprender sobre cyber securança, estará sempre atualizado e ainda terá
           tecnologias a disposição para tornar sua navegação na web mais segura.</p>
       </div>
+      {{/deslogado}}
+      {{#logado}}
+      <h1 class="mb-5">SEJA BEM VINDO {{usuariologado}}<img src="static/imagens/secgif.gif" class="secgif"></h1>
+      <div class="texto-inicial">
+        <p>Obrigado por nos escolher...</p>
+        <p>Se quiser atualizar seus dados clique no botão abaixo</p>
+        <a href="/atualizar-usuario"class="btn btn-secondary">Atualizar dados</a>
+      </div>
+      {{/logado}}
     </div>
   </div>
 

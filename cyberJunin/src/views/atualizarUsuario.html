@@ -77,10 +77,11 @@
 
     <div class="bloco-login">
       <form class="container" id="createUserForm" >
+        <input class="campo" type="hidden" id="meuid" name="meuid" value="{{idusuario}}">
         <input class="campo" type="hidden" id="cargo" name="cargo" value="comum">
-        <input class="campo" type="text" id="nome" name="nome" placeholder="Insira seu Usuário"><p>
-        <input class="campo" type="text" id="email" name="email" placeholder="Insira seu email"><p>
-        <input class="campo" type="password" id="senha" name="password" placeholder="Insira sua Senha"><p>
+        <input class="campo" type="text" id="nome" name="nome" value="{{nomeU}}"><p>
+        <input class="campo" type="text" id="email" name="email" value="{{emailU}}"><p>
+        <input class="campo" type="password" id="senha" name="password" value="{{senhaU}}"><p>
         <input class="botao" type="submit" value="ENVIAR">
       </form>    
     </div>
@@ -91,22 +92,24 @@
     
     <script>
         document.getElementById('createUserForm').addEventListener('submit', async function (event) {
-          event.preventDefault();
-          const formData = {
-            cargo: document.getElementById('cargo').value,
-            nome: document.getElementById('nome').value,
-            senha: document.getElementById('senha').value,
-            email: document.getElementById('email').value,
-          };
+            const meuid = document.getElementById('meuid').value;
+            event.preventDefault();
+            const formData = {
+                cargo: document.getElementById('cargo').value,
+                nome: document.getElementById('nome').value,
+                senha: document.getElementById('senha').value,
+                email: document.getElementById('email').value,
+            };
+
           try {
-            const response = await fetch('/api/usuarios', {
-              method: 'POST',
+            const response = await fetch(`/api/usuarios/${meuid}`, {
+              method: 'PUT',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(formData),
             });
             if (response.ok) {
               const data = await response.json();
-              alert('Post criado com sucesso! ID: ' + data.id);
+              alert('usuário atualizado com sucesso! ');
               // Opcional: limpar o formulário ou redirecionar
               // document.getElementById('createPostForm').reset();
               // window.location.href = '/listposts'; // Se você quiser redirecionar para a lista de posts
@@ -117,6 +120,10 @@
             alert('Erro ao criar post: ' + error.message);
           }
         });
+
+        
+
+
       </script>
   
   </body>
