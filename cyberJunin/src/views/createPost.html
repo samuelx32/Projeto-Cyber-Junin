@@ -73,13 +73,12 @@
           </div>
         </div>
       </nav>
-
-    <div class="container">
-        <h1>Notícias</h1>
+    <h1 class="titulo-pagina">Notícias</h1>
+    <div class="container-forms">
         <!-- Formulário de Cadastro e Atualização -->
         <div class="form-cadastro-golpe">
-            <h2>Cadastrar/Atualizar Notícias</h2>
-            <form id="contentForm" class="form-cadastro-golpes">
+            <h2 class="titulo-ferramenta">Cadastrar/Atualizar Notícias</h2>
+            <form id="contentForm" class="form-cadastro-golpe">
                 <input type="hidden" id="contentId" name="contentId">
                 <div class="mb-3">
                     <label for="title" class="form-label">Título:</label>
@@ -98,7 +97,7 @@
         </div>
 
         <!-- Tabela de Notícias -->
-        <h2>Lista de Notícias</h2>
+        <h2 class="titulo-forms">Lista de Notícias</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -210,6 +209,20 @@
                     }
                 }
             };
+
+            // Função para obter o parâmetro da URL
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                const results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+
+            // Carregar conteúdo para edição se o parâmetro id estiver presente na URL
+            const contentId = getUrlParameter('id');
+            if (contentId) {
+                editContent(contentId);
+            }
 
             // Carregar Notícias ao carregar a página
             loadContents();

@@ -73,43 +73,46 @@
           </div>
         </div>
       </nav>
-    <h1>Conteúdos Educacionais</h1>
+      <h1 class="titulo-pagina">Conteúdos Educacionais</h1>
 
     <!-- Formulário de Cadastro e Atualização -->
-    <div class="form-cadastro-golpe">
-        <h2>Cadastrar/Atualizar Conteúdo Educacional</h2>
-        <form id="contentForm">
-            <input type="hidden" id="contentId" name="contentId">
-            <label for="title">Título:</label>
-            <input type="text" id="title" name="title" required>
-            <label for="description">Descrição:</label>
-            <textarea id="description" name="description" required></textarea>
-            <label for="author">Autor:</label>
-            <input type="text" id="author" name="author" required>
-            <label for="publicationDate">Data de Publicação:</label>
-            <input type="date" id="publicationDate" name="publicationDate" required>
-            <button type="submit">Salvar</button>
-        </form>
+    <div class="container-forms">
+        <div class="form-cadastro-golpe">
+            <h2 class="titulo-ferramenta">Cadastrar/Atualizar Conteúdo Educacional</h2>
+            <form id="contentForm" class="form-cadastro-golpe">
+                <input type="hidden" id="contentId" name="contentId">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="description">Descrição:</label>
+                <textarea id="description" name="description" required></textarea>
+                <label for="author">Autor:</label>
+                <input type="text" id="author" name="author" required>
+                <label for="publicationDate">Data de Publicação:</label>
+                <input type="date" id="publicationDate" name="publicationDate" required>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+            <!-- Tabela de Conteúdos Educacionais -->
+        <h2 class="titulo-forms">Lista de Conteúdos Educacionais</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Autor</th>
+                    <th>Data de Publicação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="contentTableBody">
+                <!-- Os dados serão inseridos aqui pelo JavaScript -->
+            </tbody>
+        </table>
     </div>
 
-    <!-- Tabela de Conteúdos Educacionais -->
-    <h2>Lista de Conteúdos Educacionais</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Descrição</th>
-                <th>Autor</th>
-                <th>Data de Publicação</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody id="contentTableBody">
-            <!-- Os dados serão inseridos aqui pelo JavaScript -->
-        </tbody>
-    </table>
 
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const contentForm = document.getElementById('contentForm');

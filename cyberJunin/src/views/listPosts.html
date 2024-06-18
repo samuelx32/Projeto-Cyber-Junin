@@ -71,7 +71,6 @@
     </div>
   </nav>
 
-    
     <div id="postsList"></div>
       
     
@@ -97,6 +96,7 @@
                             <strong>${post.title}</strong> 
                             <p>Autor: ${post.author}</p>
                             <button onclick="readPost(${post.id})" style="width:30%; margin-bottom:1em;">Ler Notícia</button>
+                            {{#logado}}<button onclick="updatePost(${post.id})" style="width:30%;">Editar</button>{{/logado}}
                             {{#logado}}<button onclick="deletePost(${post.id})" style="width:30%;">Deletar</button>{{/logado}}
                           </div>
                           </div>`; // Exemplo de botão de deleção
@@ -108,20 +108,25 @@
       }
     
       async function deletePost(id) {
-        try {
-          const response = await fetch('/api/posts/' + id, { method: 'DELETE' });
-          if (response.ok) {
-            alert('Post deletado com sucesso!');
-            fetchPosts(); // Recarregar a lista após deleção
-          } else {
-            throw new Error('Falha ao deletar post');
-          }
-        } catch (error) {
-          alert('Erro ao deletar post: ' + error.message);
+        if (confirm('Tem certeza que deseja deletar este post?')) {
+            try {
+                const response = await fetch(`/api/posts/${id}`, {
+                    method: 'DELETE',
+                });
+                if (response.ok) {
+                    fetchPosts();
+                } else {
+                    console.error('Error deleting post:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error deleting post:', error);
+            }
         }
-      }
+    }
     
+    document.addEventListener('DOMContentLoaded', () => {
       fetchPosts();
+    });
     </script>
 </body>
 </html>
