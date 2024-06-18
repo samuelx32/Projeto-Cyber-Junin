@@ -133,6 +133,8 @@ nav .titulo {
 
 .bloco-ferramenta img{
     width:30%;
+    height: 230px;
+    max-height: 230px;
     margin-right: 3em;
 }
 /* Estilos para o container que engloba todas as ferramentas */
@@ -195,7 +197,7 @@ nav .titulo {
     justify-content: center;
     gap: 2em; /* Espaçamento entre cada bloco de ferramenta */
     margin-top: 8em;
-    background-color: #243663;
+    background-color: #23386d;
     padding: 2em;
     border-radius: 10px;
     margin: 5em;

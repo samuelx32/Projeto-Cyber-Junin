@@ -128,25 +128,25 @@ app.get('/listcyberattacks', function (req, res) {
 
 
 app.get('/cadastrar-usuario', function (req, res) {
-    res.render('cadastroUsuario.html')
+    res.render('cadastroUsuario.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/noticias', function (req, res) {
-    res.render('noticias.html')
+    res.render('noticias.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/createpost', function (req, res) {
-    res.render('createPost.html')
+    res.render('createPost.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/createcyberattack', function (req, res) {
-    res.render('createCyberAttack.html')
+    res.render('createCyberAttack.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/listcyberattacks', function (req, res) {
-    res.render('listCyberAttacks.html')
+    res.render('listCyberAttacks.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/educational-contents', function (req, res) {
-    res.render('educationalContent.html')
+    res.render('educationalContent.html',{logado,deslogado,usuariologado})
 })

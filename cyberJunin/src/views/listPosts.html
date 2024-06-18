@@ -29,8 +29,12 @@
             <a class="nav-link" aria-disabled="true" href="/listestudos">Estudos</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" aria-disabled="true" href="/listcyberattacks">Golpes</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" aria-disabled="true" href="/listferramentas">Ferramentas</a>
           </li>
+          
           {{#logado}}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,7 +61,7 @@
         {{/deslogado}}
 
         {{#logado}}
-        <form class="d-flex" role="search" action="/login">
+        <form class="d-flex" role="search" action="/sair">
           <button class="btn btn-danger" type="submit">SAIR</button>
         </form>
         {{/logado}}
