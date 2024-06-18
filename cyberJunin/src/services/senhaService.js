@@ -9,12 +9,14 @@ function verificarForcaSenha(senha) {
 
     // Pontuação inicial
     let pontuacao = 0;
+    let mensagem = ''
 
     // Verifica o comprimento da senha
     if (senha.length >= comprimentoMinimo) {
         pontuacao += 2;
     } else {
-        return { forca: 'Fraca', mensagem: 'A senha deve ter pelo menos 8 caracteres' };
+        mensagem = 'A senha deve ter pelo menos 8 caracteres'
+        return { forca: 'Fraca', mensagem };
     }
 
     // Verifica outros critérios
@@ -33,11 +35,14 @@ function verificarForcaSenha(senha) {
 
     // Avalia a pontuação e retorna a categoria
     if (pontuacao <= 4) {
-        return { forca: 'Fraca', mensagem: 'Senha fraca, deve conter letras minúsculas, maiúsculas, números e caracteres especiais' };
+        mensagem = 'Considere adicionar letras maiúsculas, números e caracteres especiais';
+        return { forca: 'Fraca', mensagem };
     } else if (pontuacao <= 6) {
-        return { forca: 'Média', mensagem: 'Senha de média força, considere adicionar mais letras, números ou caracteres especiais' };
+        mensagem = 'Considere adicionar mais variação na sua senha';
+        return { forca: 'Média', mensagem };
     } else {
-        return { forca: 'Forte', mensagem: 'Senha forte' };
+        mensagem = 'Sua senha é forte! Mas não utilize a mesma senha para vários lugares.';
+        return { forca: 'Forte', mensagem };
     }
 }
 

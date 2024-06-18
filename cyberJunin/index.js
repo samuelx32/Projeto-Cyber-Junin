@@ -25,6 +25,7 @@ const PORT = 8080;
 
 let usuariologado = ""
 let logado = false
+let deslogado = true
 
 connectDB()
 sequelize.sync()
@@ -52,33 +53,30 @@ app.listen(PORT, function () {
 })
 
 app.get('/', function (req, res) {
-    if (logado) {
-        res.render('index_logado.html', { usuariologado })
-    } else {
-        res.render('index.html')
-    }
+    res.render('index.html',{logado,deslogado,usuariologado})
 
 })
 
 app.get('/sair', function (req, res) {
     logado = false
+    deslogado=true
     usuariologado = ""
     res.redirect('/')
 })
 
 app.get('/login', function (req, res) {
-    res.render('login.html')
+    res.render('login.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/verificacaourl', function (req, res) {
-    res.render('verificacao-url.html')
+    res.render('verificacao-url.html',{logado,deslogado,usuariologado})
 })
 app.get('/verificacaoarquivos', function (req, res) {
-    res.render('verificacao-arquivos.html')
+    res.render('verificacao-arquivos.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/verificasenha', function (req, res) {
-    res.render('verificasenha.html')
+    res.render('verificasenha.html',{logado,deslogado,usuariologado})
 })
 
 
@@ -96,6 +94,7 @@ app.post('/verificarLogin', function (req, res) {
         } else {
             if (row) {
                 logado = true
+                deslogado=false
                 usuariologado = nome
                 res.redirect('/')
             } else {
@@ -112,16 +111,21 @@ app.post('/verificarLogin', function (req, res) {
 //cruds
 
 app.get('/listposts', function (req, res) {
-    res.render('listPosts.html')
+    res.render('listPosts.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/listestudos', function (req, res) {
-    res.render('listEstudos.html')
+    res.render('listEstudos.html',{logado,deslogado,usuariologado})
 })
 
 app.get('/listferramentas', function (req, res) {
-    res.render('listFerramentas.html')
+    res.render('listFerramentas.html',{logado,deslogado,usuariologado})
 })
+
+app.get('/listcyberattacks', function (req, res) {
+    res.render('listCyberAttacks.html',{logado,deslogado,usuariologado})
+})
+
 
 app.get('/cadastrar-usuario', function (req, res) {
     res.render('cadastroUsuario.html')
@@ -133,10 +137,6 @@ app.get('/noticias', function (req, res) {
 
 app.get('/createpost', function (req, res) {
     res.render('createPost.html')
-})
-
-app.get('/listposts', function (req, res) {
-    res.render('listPosts.html')
 })
 
 app.get('/createcyberattack', function (req, res) {

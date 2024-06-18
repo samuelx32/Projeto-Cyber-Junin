@@ -24,31 +24,44 @@
               <a class="nav-link active op" aria-current="page" href="/">Tela Inicial</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/noticias">Notícias</a>
+              <a class="nav-link" href="/listposts">Notícias</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-disabled="true">Estudos</a>
+              <a class="nav-link" aria-disabled="true" href="/listestudos">Estudos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-disabled="true">Ferramentas</a>
+              <a class="nav-link" aria-disabled="true" href="/listferramentas">Ferramentas</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Administrador
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Crud Usuário</a></li>
-                <li><a class="dropdown-item" href="#">Crud Notícia</a></li>
-                <li><a class="dropdown-item" href="#">Crud Estudo</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Adicionar Estudo</a></li>
-              </ul>
-            </li>
-            
-          </ul>
-          <form class="d-flex" role="search" action="/login">
-            <button class="btn btn-secondary" type="submit">LOGIN</button>
-          </form>
+            {{#logado}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Administrador
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Crud Usuário</a></li>
+              <li><a class="dropdown-item" href="/createpost">Crud Notícia</a></li>
+              <li><a class="dropdown-item" href="/educational-contents">Crud Estudo</a></li>
+              <li><a class="dropdown-item" href="/createcyberattack">Crud Golpes</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/listcyberattacks">Consultar Golpes</a></li>
+            </ul>
+          </li>
+          {{/logado}}
+
+        </ul>
+        {{#deslogado}}
+        <form class="d-flex" role="search" action="/login">
+          <button class="btn btn-secondary" type="submit">LOGIN</button>
+        </form>
+        {{/deslogado}}
+
+        {{#logado}}
+        <form class="d-flex" role="search" action="/login">
+          <button class="btn btn-danger" type="submit">SAIR</button>
+        </form>
+        {{/logado}}
         </div>
       </div>
     </nav>

@@ -2,6 +2,7 @@
 
 *{
     font-family: 'Poppins', sans-serif;
+    font-size: 16px;
 }
 
 body {
@@ -77,15 +78,17 @@ nav .titulo {
 }
 
 .bloco-login {
-    width: 40%;
-    margin-left: 30%;
-    margin-top: 2%;
-    padding: 3% 1% 10% 1%;
+    width: 100%;
+    padding: 3% 1% 0% 9%;
     text-align: left;
     align-items: center;
     background-image: url(../imagens/login-back.jpg);
     box-shadow: 1px 1px 1px#243663;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
     opacity: 80%;
+    height:80em;
 }
 
 .bloco-login a{
@@ -94,25 +97,43 @@ nav .titulo {
 }
 
 .campo{
-    width:70%;  
+    width:50%;  
     height:2em;
     border: 1.5px solid #D3D3D3;
     margin:0.5em 0.5em;
-    border-radius:7px;
     opacity: 80%;
 
 }
 
 .botao{
-    width:60%;  
+    width:20%;  
     height:2em;
     border: 1.5px solid #133485;
     margin:0.5em;
     background-color: #a1a5b1;
 }
 
+/* Melhorias para .bloco-ferramenta */
+
+#postsList{
+    margin-bottom: 6em;
+}
+.bloco-ferramenta {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    background-color: #ffffff; /* Fundo branco para maior contraste e limpeza */
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 2em 4em;
+    border:1px solid gray;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais suave para um look moderno */
+    border-radius: 8px; /* Bordas arredondadas para um design mais suave */
+}
+
 .bloco-ferramenta img{
-    width:10%;
+    width:30%;
+    margin-right: 3em;
 }
 /* Estilos para o container que engloba todas as ferramentas */
 .container-ferramentas {
@@ -155,11 +176,70 @@ nav .titulo {
     transition: color 0.3s ease; /* Transição suave para interação */
 }
 
-.titulo-ferramenta a:hover {
+/* Melhorias para .titulo-ferramenta */
+.titulo-ferramenta {
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem; /* Tamanho de fonte maior para destaque */
+    color: #333333; /* Cor escura para contraste */
+    text-align: left; /* Centralizar o título */
+    padding-right: 1em;
+}
+
+
+.container-ferramentas2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em; /* Espaçamento entre cada bloco de ferramenta */
+    margin-top: 8em;
+    background-color: #243663;
+    padding: 2em;
+    border-radius: 10px;
+    margin: 5em;
+  }
+
+/* Estilos para cada bloco de ferramenta */
+.bloco-ferramenta2 {
+    background-color: #D4D8E2; /* Fundo branco para limpeza visual */
+    border: 1px solid #061233; /* Borda sutil */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra suave para profundidade */
+    border-radius: 10px; /* Bordas arredondadas para suavidade */
+    width: 80%; /* Largura relativa para responsividade */
+    max-width: 350px; /* Largura máxima para consistência */
+    padding: 2em; /* Espaçamento interno */
+    text-align: center; /* Texto centralizado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para interação */
+}
+
+.bloco-ferramenta2:hover {
+    transform: translateY(-5px); /* Elevação suave ao passar o mouse */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra mais intensa ao passar o mouse */
+    background-color: #d4d8e2b7;
+}
+
+/* Estilos para o título de cada ferramenta */
+.titulo-ferramenta2 a {
+    font-size: 1.25rem; /* Tamanho de fonte maior para destaque */
+    color: #061233; /* Cor de destaque */
+    text-decoration: none; /* Remover sublinhado de links */
+    transition: color 0.3s ease; /* Transição suave para interação */
+    text-align: center;
+}
+
+.titulo-ferramenta2 a:hover {
     color: #010716; /* Cor mais escura ao passar o mouse */
 }
 
-/* Estilos para o título da página */
+
+.texto-estudo {
+    width: 40%;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
 .titulo-pagina {
     text-align: center; /* Centraliza o texto */
     margin: 2em 2em; /* Adiciona espaço acima e abaixo do título */
@@ -169,13 +249,6 @@ nav .titulo {
     color: #061233; /* Define a cor do texto */
     font-size: 2rem; /* Tamanho da fonte */
     font-weight: 700;
-}
-  
-
-.texto-estudo {
-    width: 40%;
-    padding-top: 4em;
-    padding-bottom: 4em;
 }
 
 .texto-estudo h3 {
@@ -192,14 +265,19 @@ nav .titulo {
     border-bottom: 1px solid #D4D8E2;
 }
 
-.footer {
+footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
   }
 
 .result-container {
@@ -220,6 +298,29 @@ nav .titulo {
     border: 1px solid #dee2e6;
     border-radius: 5px;
     text-align: center; /* Centraliza o texto dentro do item */
+}
+
+.bloco-verificacao {
+
+    background-color: #D4D8E2;
+    /* Fundo branco para limpeza visual */
+    border: 1px solid #061233;
+    /* Borda sutil */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* Sombra suave para profundidade */
+    border-radius: 10px;
+    /* Bordas arredondadas para suavidade */
+    width: 80%;
+    /* Largura relativa para responsividade */
+    max-width: 350px;
+    /* Largura máxima para consistência */
+    padding: 2em;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Texto centralizado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transição suave para interação */
+    margin-top: 5em;
 }
 
 @media only screen and (max-width: 940px) {
