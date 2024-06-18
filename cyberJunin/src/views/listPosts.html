@@ -95,7 +95,9 @@
                           <div class="titulo-ferramenta">  
                             <strong>${post.title}</strong> 
                             <p>Autor: ${post.author}</p>
-                            <p>${post.content}</p>
+                            <button onclick="readPost(${post.id})" style="width:30%; margin-bottom:1em;">Ler Notícia</button>
+                            {{#logado}}<button onclick="updatePost(${post.id})" style="width:30%;">Editar</button>{{/logado}}
+                            {{#logado}}<button onclick="deletePost(${post.id})" style="width:30%;">Deletar</button>{{/logado}}
                           </div>
                           </div>`; // Exemplo de botão de deleção
             postsList.appendChild(div);
@@ -128,3 +130,4 @@
     </script>
 </body>
 </html>
+
