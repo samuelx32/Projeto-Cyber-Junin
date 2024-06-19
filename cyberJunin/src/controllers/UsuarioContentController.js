@@ -35,7 +35,7 @@ exports.getPostById = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
     try {
-        const post = await usuarioService.uptadePost(req.params.id, req.body)
+        const post = await usuarioService.updatePost(req.params.id, req.body)
         if (!post) {
             return res.status(404).json({ error: 'Post não encontrado.' })
         }

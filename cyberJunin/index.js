@@ -110,6 +110,22 @@ app.post('/verificarLogin', function (req, res) {
 
 })
 
+app.post('/atualizausuario',function(req, res){
+    id = req.body.meuid
+    nome = req.body.nome
+    cargo = req.body.cargo
+    senha = req.body.senha
+    email = req.body.email
+
+    usuariologado = nome
+
+    let sql = `UPDATE usuarios SET nome = ?, senha = ?, email = ? WHERE id = ?`
+    db.get(sql, [nome,senha, email, id], (err, row) => {
+        res.redirect('/')
+    })
+
+})
+
 app.get('/atualizar-usuario', function (req, res) {
     let sql = `SELECT * FROM usuarios WHERE id = ?`;
 

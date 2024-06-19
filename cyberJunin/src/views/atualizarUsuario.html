@@ -76,12 +76,12 @@
     
 
     <div class="bloco-login">
-      <form class="container" id="createUserForm" >
+      <form class="container" id="updateUserForm" method="POST" action="/atualizausuario">
         <input class="campo" type="hidden" id="meuid" name="meuid" value="{{idusuario}}">
         <input class="campo" type="hidden" id="cargo" name="cargo" value="comum">
         <input class="campo" type="text" id="nome" name="nome" value="{{nomeU}}"><p>
         <input class="campo" type="text" id="email" name="email" value="{{emailU}}"><p>
-        <input class="campo" type="password" id="senha" name="password" value="{{senhaU}}"><p>
+        <input class="campo" type="password" id="senha" name="senha" value="{{senhaU}}"><p>
         <input class="botao" type="submit" value="ENVIAR">
       </form>    
     </div>
@@ -90,41 +90,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
-    <script>
-        document.getElementById('createUserForm').addEventListener('submit', async function (event) {
-            const meuid = document.getElementById('meuid').value;
-            event.preventDefault();
-            const formData = {
-                cargo: document.getElementById('cargo').value,
-                nome: document.getElementById('nome').value,
-                senha: document.getElementById('senha').value,
-                email: document.getElementById('email').value,
-            };
-
-          try {
-            const response = await fetch(`/api/usuarios/${meuid}`, {
-              method: 'PUT',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(formData),
-            });
-            if (response.ok) {
-              const data = await response.json();
-              alert('usuário atualizado com sucesso! ');
-              // Opcional: limpar o formulário ou redirecionar
-              // document.getElementById('createPostForm').reset();
-              // window.location.href = '/listposts'; // Se você quiser redirecionar para a lista de posts
-            } else {
-              throw new Error('Falha ao criar post');
-            }
-          } catch (error) {
-            alert('Erro ao criar post: ' + error.message);
-          }
-        });
-
-        
-
-
-      </script>
+    
   
   </body>
 </html>
