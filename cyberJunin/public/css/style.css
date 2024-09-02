@@ -384,9 +384,12 @@ footer {
 
     .banner {
         width: 100%;
+        text-align: center;
+        padding:2em;
     }
+    
     .secgif {
-        width: 30%;
+        width: 10%;
     }
     .texto-inicial {
         width: 100%;
@@ -396,6 +399,13 @@ footer {
     .texto-estudo {
         width: 100%;
     }
+
+    .campo {
+        width: 80%;
+        
+    }
+
+    
 }
 
 .form-url {
